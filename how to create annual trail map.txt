@@ -1,0 +1,40 @@
+Copy the first .gpx file to a safe location to get the start and end of the file when you are all done
+
+Rename all gps trail files from "*.gpx" to "r (x).gpx" where x is the date order of the files
+
+Change format of all gps trail files from .gpx to .txt with cmd: ren * *.txt
+
+Use the Notepad++ Find in Files feature to remove beginning and end of gps trail files leaving just the <trk> </trk> tags
+
+Now you have "r (x).txt" files with just the ride gps data as <trk> </trk>
+
+Open the Runkeeper rides file and put this in L2
+=D2&" - "&E2&" miles - "&C2&" "&(TEXT(A2,"m-d-yy"))
+
+Copy the text in the L column, right click in M1, and paste them as Values in M1
+
+Now the only manual part is to copy all that Excel generated content in M1 to the gpx files replacing
+<name><![CDATA[some shit]]></name>
+with
+<name><![CDATA[Carol Place - 8.74 miles - Cycling 4-1-18]]></name>
+
+Open Excel to make the contents of a script that will append all gps trail ride file contents to merged.txt
+A			B	C							D
+cat "r( 	1	 ).txt" >> merged.txt		=A1&C1&D1
+cat "r( 	2	 ).txt" >> merged.txt		=A2&C2&D2
+cat "r( 	3	 ).txt" >> merged.txt		=A3&C3&D3
+...
+
+Copy the text in the D column, right click in E1, and paste them as Values in E1
+
+Then copy E1 to script.sh
+cat "r(1).txt" >> merged.txt
+cat "r(2).txt" >> merged.txt
+cat "r(3).txt" >> merged.txt
+...
+
+Copy script.sh and all "r (x).txt" files to CentOS, give script.sh permissions to execute, and run it
+
+Copy all files back to Windows, rename merged.txt to "2018 Merged GPX Data.txt" and upload to gpsvisualizer.com
+
+Finish making List Excel file
