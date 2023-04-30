@@ -20,7 +20,7 @@ Copy the text in the K column, right click in L1, and paste them as Values in L1
 Second manual part - copy all that Excel generated content in column L to each gpx files replacing
 <name><![CDATA[some shit]]></name>
 with
-<name><![CDATA[Carol Place - 8.74 miles - Cycling 4-1-18]]></name>
+<name><![CDATA[Haverstraw Trail - 40.34 miles - Mountain Biking 4-1-18]]></name>
 Install MacroRecorder, load macro-config.mrf for quick action to paste, backspace, save, and exit as one button
 From Settings, add MacroRecorder hotkey X to play macro
 
